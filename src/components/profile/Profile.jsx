@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import style from './profile.module.css';
 
 export const Profile = ({ username, tag, location, avatar, stats }) => {
   return (
-    <div classNam="profile">
+    <div className={style.profile}>
       <div className="description">
         <img src={avatar} alt="User avatar" className="avatar" />
         <p className="name">{username}</p>
