@@ -13,17 +13,17 @@ function getRandomColor() {
 export const Statistics = ({ title, stats }) => {
   return (
     <section className={style.statistics}>
-      <h2 className={style.title}>{title}</h2>
+      {title && <h2 className={style.title}>{title}</h2>}
 
       <ul className={style.list}>
-        {stats.map(stat => (
+        {stats.map(({ id, label, percentage }) => (
           <li
             className={style.item}
-            key={stat.id}
+            key={id}
             style={{ backgroundColor: getRandomColor() }}
           >
-            <span className={style.label}>{stat.label}</span>
-            <span className={style.percentage}>{stat.percentage}%</span>
+            <span className={style.label}>{label}</span>
+            <span className={style.percentage}>{percentage}%</span>
           </li>
         ))}
       </ul>
@@ -38,6 +38,6 @@ Statistics.propTypes = {
       id: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
       percentage: PropTypes.number.isRequired,
-    })
+    }).isRequired
   ),
 };
